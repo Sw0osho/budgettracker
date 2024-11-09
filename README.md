@@ -115,7 +115,3 @@ For issues or questions, please:
 2. Verify all required libraries are installed
 3. Ensure all files are in the correct location
 4. Check file permissions for data storage
-
-## License
-
-This project is open source and available under the MIT License. 
