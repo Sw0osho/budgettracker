@@ -863,13 +863,18 @@ class BudgetTracker:
     def update_summary(self):
         income = 0
         expenses = 0
-        
+
         for t in self.transactions:
-            # Use the amount directly in its original currency
+            # Convert each transaction to the preferred currency before summing
+            converted_amount = self.currency_converter.convert_amount(
+                t.amount,
+                t.currency,
+                self.preferred_currency.get(),
+            )
             if t.type == 'income':
-                income += t.amount
+                income += converted_amount
             else:
-                expenses += t.amount
+                expenses += converted_amount
                 
         balance = income - expenses
         
